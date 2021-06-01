@@ -1,0 +1,169 @@
+
+form{
+    
+
+}
+
+#btn-new-hosp{
+    
+    margin-left: 10px;
+}
+
+#form2{
+    margin: 0 auto;
+    
+    width: 60%;
+    /*float: right;*/
+}
+
+.form-group{
+
+   
+}
+
+/*
+.modal-personalizado{
+    
+    min-width: 60%; 
+
+}
+
+#modal-conteudo{
+    width: 100%;
+}
+*/
+#btn-form{
+    text-decoration: white;
+    
+    text-align:center;
+
+}
+
+
+
+
+#btn-modal{
+    
+    text-align:right;
+
+}
+
+#modal-corpo{
+    border-radius: 15px;
+}
+
+/*hospedes*/
+
+.table-info-container form{
+    display: inline-block;
+}
+
+
+
+/* infobox dashboard */
+
+.info-box{
+    border-radius: 10px;
+    /*font-size: 14px;
+    line-height: 1.42857143;
+    font-family: 'Roboto', Arial, Tahoma, sans-serif;
+    box-sizing: border-box;*/
+    /*color: #fff;*/
+    display: flex;
+    /*cursor: default;
+    position: relative;
+    overflow: hidden;*/
+    margin-bottom: 30px;
+}
+
+.bg-yellow{
+    background-color: #F39C12 !important;
+
+}
+.bg-green{
+    background-color: #00A65A !important;
+
+}
+.bg-red{
+    background-color: #DD4B39 !important;
+
+}
+
+
+.info-box .icon{
+    
+    color: #fff;
+    /*cursor: default;
+    box-sizing: border-box;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.12);
+    width: 50%;
+
+}
+
+.info-box .icon i {
+    color: #fff;
+    font-size: 50px;
+    line-height: 80px;
+}
+
+.info-box .content{
+
+    /*font-size: 14px;
+    line-height: 1.42857143;*/
+    font-family: 'Roboto', Arial, Tahoma, sans-serif;
+    /*color: #fff;
+    cursor: default;
+    box-sizing: border-box;
+    display: inline-block;*/
+    padding: 7px 10px;
+    width: 50%;
+}
+
+.info-box .content .number {
+    /*font-weight: normal;*/
+    font-size: 40px;
+    margin-top: 11px;
+    text-align: center;
+}
+
+.info-box .content .text {
+    font-size: 16px;
+    margin-top: -4px;
+    text-align: center;
+}
+
+
+.bg-red .content .text, .bg-yellow, .bg-green, .bg-red .content .number {
+    color: #fff !important;
+}
+
+/*
+.bi{
+    color: white;
+}*/
+
+.btn{
+    color: white;
+}
+
+.campo{
+    font-size: 20px;
+    color: lightslategray;
+}
+
+.info{
+    color: black;
+}
+.op-view{
+    text-align: center;
+}
+
+.btn-add{
+    float: left;
+}
+.camp-search{
+    float: right;
+}
