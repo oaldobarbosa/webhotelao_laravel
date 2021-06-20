@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\QuartoController;
+use App\Http\Controllers\HistoricoController;
+use App\Http\Controllers\HospedeController;
+use App\Http\Controllers\DashboardController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,11 +16,10 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//dashboard
+Route::get('/', [DashboardController::class, 'index']);
 
 //hospedagens
 Route::get('/hospedagens', function(){
@@ -26,12 +30,12 @@ Route::get('/novahospedagem', function(){
 });
 
 //hospedes
-Route::get('/hospedes', function(){
-        return view('/hospede/hospedes');
-});
-Route::get('/novohospede', function(){
-    return view('/hospede/create_hospede');
-});
+Route::get('/hospedes', [HospedeController::class, 'index']);
+Route::get('/hospedes/create', [HospedeController::class, 'create']);
+Route::post('/hospedes', [HospedeController::class, 'store']);
+Route::get('/hospedes/{id}', [HospedeController::class, 'show']);
+Route::delete('/hospedes/{id}', [HospedeController::class, 'destroy']);
+
 
 Route::get('/view', function(){
     return view('/hospede/view');
@@ -41,14 +45,9 @@ Route::get('/hospede/edit', function(){
     return view('/hospede/edit');
 });
 
-
 //quartos
-Route::get('/quartos', function(){
-    return view('quartos');
-});
+Route::get('/quartos', [QuartoController::class, 'index']);
 
 //historico
-Route::get('/historico', function(){
-    return view('historico');
-});
+Route::get('/historico', [HistoricoController::class, 'index']);
 

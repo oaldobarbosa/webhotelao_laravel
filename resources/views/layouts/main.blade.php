@@ -54,17 +54,11 @@
                     
                     <!-- Logo -->
 
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="/">
                         <!-- Logo icon -->
-                        <b class="logo-icon ps-2 text-center">
-                        	W                    
-                            <!--<img src="../../assets/images/W.png" alt="homepage" class="light-logo" />-->
-                        </b>
+                        <b class="logo-icon ps-2 text-center">W</b>
 
-                        <span class="logo-text">
-                        	ebHotelão
-                            <!--<img src="../../assets/images/ebHotelao.png" alt="homepage" class="light-logo" />-->
-                        </span>
+                        <span class="logo-text">ebHotelão</span>
 
                     </a>
                     

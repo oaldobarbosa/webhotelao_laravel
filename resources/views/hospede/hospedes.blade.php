@@ -7,7 +7,7 @@
 
 <div class="col-sm-12">
     <div class="col-sm-6 btn-add">
-        <a href="/novohospede">
+        <a href="/hospedes/create">
             <button type="" class="btn btn-success">Novo Hóspede</button>
         </a>
     </div>
@@ -48,27 +48,28 @@
 
 
 <tbody>
-   {{--  @foreach($quartos as $quarto) --}}
+   @foreach($hospedes as $hospede)
         <tr>
-            <td scope="row"> 1</td>
-            <td>Aldp</td>
-            <td> 07564812456</td>
-            <td>77991054875</td>
-            <td>Masculino</td>
-            <td>10/10/2010</td>
+            <td scope="row">{{ $hospede->id }}</td>
+            <td>{{ $hospede->nome }}</td>
+            <td>{{ $hospede->cpf }}</td>
+            <td>{{ $hospede->telefone }}</td>
+            <td>{{ $hospede->sexo}}</td>
+            <td>{{ date( 'd/m/Y' , strtotime($hospede->data_nascimento)) }}</td>
 
             <td>
-                <a href="/view" class="btn btn-success view-btn"><i class="bi bi-eye"></i></a> 
+                <a href="/hospedes/{{ $hospede->id }}" class="btn btn-success view-btn"><i class="bi bi-eye"></i></a> 
+
                 <a href="/hospede/edit" class="btn btn-warning edit-btn"><i class="bi bi-pencil-square"></i></a> 
                 
-                <form action="" method="POST">
+                <form action="/hospedes/{{ $hospede->id }}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger delete-btn"><i class="bi bi-trash"></i></button>
                 </form>
             </td>
         </tr>
-    {{-- @endforeach   --}}     
+    @endforeach  
 </tbody>
 
 

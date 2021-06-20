@@ -38,19 +38,19 @@
 
 
 <tbody>
-   {{--  @foreach($quartos as $quarto) --}}
+   @foreach($quartos as $quarto)
         <tr>
-            <td scope="row"> 1</td>
-            <td>1</td>
-            <td> Comum</td>
-            <td>50.00</td>
-            <td>Ocupado</td>
+            <td scope="row"> {{ $quarto->id  }} </td>
+            <td> {{ $quarto->numero }} </td>
+            <td> {{ $quarto->tipo }} </td>
+            <td> {{ $quarto->valor_diaria }} </td>
+            <td> {{ $quarto->status }} </td>
 
             <td> 
                 <a href="" class="btn btn-warning edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a>                 
             </td>
         </tr>
-    {{-- @endforeach   --}}     
+    @endforeach  
 </tbody>
 
 
