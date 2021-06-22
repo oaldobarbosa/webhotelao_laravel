@@ -20,6 +20,9 @@
     <link href="../../dist/css/style.min.css" rel="stylesheet">
     <!-- Css Aldo -->
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Js Aldo -->
+    
+    <script src="/js/script.js"></script>
 
     <!-- Js Bootstrap -->
 
@@ -169,7 +172,13 @@
           
             <div class="container-fluid" id="conteudo">
                 <div class="row">
-                
+                    
+                    @if(session('msg'))
+                        <div id="msg">
+                            <p class="msg"> {{ session('msg') }}</p>
+                        </div>
+                    @endif  
+                                  
                     @yield('content')
                 
                 </div>

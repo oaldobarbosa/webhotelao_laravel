@@ -46,8 +46,10 @@
             <td> {{ $quarto->valor_diaria }} </td>
             <td> {{ $quarto->status }} </td>
 
-            <td> 
-                <a href="" class="btn btn-warning edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a>                 
+            <td>
+                @if($quarto->status == 'livre')
+                <a href="/quartos/edit/{{ $quarto->id }}" class="btn btn-warning edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a>
+                @endif                 
             </td>
         </tr>
     @endforeach  
@@ -55,5 +57,7 @@
 
 
 </table>
+
+<p>* Para alterar o valor, o quarto tem de estar livre.</p>
 
 @endsection

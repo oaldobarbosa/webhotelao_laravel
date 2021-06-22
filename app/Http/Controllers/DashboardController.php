@@ -13,7 +13,9 @@ class DashboardController extends Controller
         $hospedes = DB::table('hospedes')->count();
         //$hospedagens = DB::table('users')->count();
 
-        return view('dashboard', ['hospedes' => $hospedes]);
+        $hoje = date('d/m/Y');
+
+        return view('dashboard', ['hospedes' => $hospedes, 'hoje' => $hoje]);
 
     }
     //

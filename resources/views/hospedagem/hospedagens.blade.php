@@ -7,7 +7,7 @@
 
 <div class="col-sm-12">
     <div class="col-sm-6 btn-add">
-        <a href="/novahospedagem">
+        <a href="/hospedagens/create">
             <button type="" class="btn btn-success">Nova Hospedagem</button>
         </a>
     </div>
@@ -35,9 +35,9 @@
         <th scope="col">#</th>
         <th scope="col">CPF Hóspede</th>
         <th scope="col">Dt Hospedagem</th>
-        <th scope="col">Dt Checkout</th>
+        <!--<th scope="col">Dt Checkout</th>-->
         <th scope="col">Nrº Quarto</th>
-        <th scope="col">Valor</th>
+        <!--<th scope="col">Valor</th>-->
         <th scope="col">Ação</th>       
     </tr>      
 </thead>
@@ -49,16 +49,16 @@
             <td scope="row"> 1</td>
             <td>045452221</td>
             <td>10/08/2021</td>
-            <td>12/08/2021</td>
+            <!--<td>12/08/2021</td>-->
             <td>4</td>
-            <td>R$:55,00</td>
+            <!--<td>R$:55,00</td>-->
             <td> 
                 <a href="" class="btn btn-warning edit-btn"><i class="bi bi-pencil-square"></i></a>
 
-                <form action="" method="POST">
+                <form action="/hospedagens/checkout" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger delete-btn"><i class="bi bi-trash"></i></button>
+                    <button type="submit" class="btn btn-danger delete-btn"><i class="bi bi-door-closed" ></i></button>
                 </form>                 
             </td>
         </tr>

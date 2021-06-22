@@ -10,9 +10,22 @@ class HospedeController extends Controller
 {
     public function index(){
 
-        $hospedes = Hospede::all();
+        $search = request('search');
 
-        return view('hospede.hospedes', ['hospedes' => $hospedes]);
+        if ($search) {
+
+            $hospedes = Hospede::where([
+                ['nome', 'like', '%'.$search.'%']
+
+            ])->get();
+            
+        }else {
+
+            $hospedes = Hospede::all();
+            
+        }
+   
+        return view('hospede.hospedes', ['hospedes' => $hospedes, 'search' => $search]);
     }
 
     public function create(){
@@ -32,7 +45,9 @@ class HospedeController extends Controller
 
         $hospede->save();
 
-        return redirect('/hospedes');
+        return redirect()->back()->with('msg', 'Hospede Adicionado com Sucesso!');
+
+        //return redirect('/hospedes')->with('msg', 'Hospede Adicionado com Sucesso!');
 
     }
 
@@ -48,7 +63,23 @@ class HospedeController extends Controller
 
         $hospede = Hospede::findOrFail($id)->delete();
 
-        return redirect('/hospedes');
+        return redirect('/hospedes')->with('msg', 'Hóspede Deletado Com Sucesso');
+    }
+
+    public function edit($id){
+
+        $hospede = Hospede::findOrFail($id);
+
+        return view('hospede.edit', ['hospede' => $hospede]);
+
+    }
+
+    public function update(Request $request){
+
+        $hospede = Hospede::findOrFail($request->id)->update($request->all());
+
+        return redirect('/hospedes')->with('msg', 'Dados do Hóspede Atualizado Com Sucesso!');
+
     }
     //
 }

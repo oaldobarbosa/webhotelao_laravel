@@ -6,6 +6,8 @@ use App\Http\Controllers\QuartoController;
 use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\HospedeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\HospedagemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,20 +23,33 @@ use App\Http\Controllers\DashboardController;
 //dashboard
 Route::get('/', [DashboardController::class, 'index']);
 
-//hospedagens
-Route::get('/hospedagens', function(){
-    return view('/hospedagem/hospedagens');
-});
-Route::get('/novahospedagem', function(){
-    return view('/hospedagem/create_hospedagem');
-});
+//HOSPEDAGENS
+Route::get('/hospedagens', [HospedagemController::class, 'index']);
+    //create
+Route::get('/hospedagens/create', [HospedagemController::class, 'create']);
 
-//hospedes
+Route::post('/hospedagens/create', [HospedeController::class, 'store']);
+
+
+
+
+//chekout
+Route::get('/hospedagens/checkout/{id}', [CheckoutController::class, 'index']);
+
+
+//HOSPEDES
 Route::get('/hospedes', [HospedeController::class, 'index']);
+//create
 Route::get('/hospedes/create', [HospedeController::class, 'create']);
+//post create
 Route::post('/hospedes', [HospedeController::class, 'store']);
+
 Route::get('/hospedes/{id}', [HospedeController::class, 'show']);
+//delete
 Route::delete('/hospedes/{id}', [HospedeController::class, 'destroy']);
+//edit
+Route::get('/hospedes/edit/{id}', [HospedeController::class, 'edit']);
+Route::put('/hospedes/update/{id}', [HospedeController::class, 'update']);
 
 
 Route::get('/view', function(){
@@ -45,8 +60,11 @@ Route::get('/hospede/edit', function(){
     return view('/hospede/edit');
 });
 
-//quartos
+//QUARTOS
 Route::get('/quartos', [QuartoController::class, 'index']);
+Route::get('/quartos/edit/{id}', [QuartoController::class, 'edit']);
+Route::put('/quartos/update/{id}', [QuartoController::class, 'update']);
+
 
 //historico
 Route::get('/historico', [HistoricoController::class, 'index']);

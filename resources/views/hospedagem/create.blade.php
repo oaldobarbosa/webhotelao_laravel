@@ -6,7 +6,7 @@
 <form id="form2">
 
     <div class="form-group row">
-        <label for="inputEmail3" class="col-sm-3 col-form-label">Cpf Hóspede</label>
+        <label for="inputEmail3" class="col-sm-3 col-form-label">CPF Hóspede</label>
 
         <div class="col-sm-9">
             <div class="input-group">
@@ -20,13 +20,38 @@
         </div>        
     </div>
 
-  
+    <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-3 col-form-label">Qtd. Pessoas</label>
+        <div class="col-sm-9">
+
+            <select name="name" id="" class="form-control">
+                
+                <option value="" selected>Quantidade de pessoas...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        
+        </div>
+    </div>
+
     <div class="form-group row">
         <label for="inputPassword3" class="col-sm-3 col-form-label">Nr. Quarto</label>
         <div class="col-sm-9">
-            <input type="number" class="form-control" id="inputPassword3" placeholder="Número Quarto" required>
+
+            <select name="name" id="" class="form-control">
+                <option value="" selected>Número do quarto...</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        
         </div>
     </div>
+
+  
 
     <div class="form-group row">
         <label for="inputPassword3" class="col-sm-3 col-form-label">Valor Diária</label>
@@ -42,7 +67,8 @@
         </div>
     </div>
 
-    <div class="form-group row">
+    
+    <!--<div class="form-group row">
         <label for="inputPassword3" class="col-sm-3 col-form-label">Dt Checkout</label>
         <div class="col-sm-9">
             <input type="date" class="form-control" id="inputPassword3" placeholder="Data Checkout">
@@ -61,6 +87,49 @@
         <div class="col-sm-9">
             <input type="number" class="form-control" id="inputPassword3" placeholder="Valor Hospedagem">
         </div>
+    </div>-->
+
+    <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-3 col-form-label">Qtd. Pessoas</label>
+        <div class="col-sm-9">
+
+            <select name="name" id="" class="form-control">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-3 col-form-label">Serviços</label>
+        <div class="col-sm-9">
+
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+            Serviço de Quarto
+        </label>
+        </div>
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label" for="flexCheckChecked">
+            Cofre
+        </label>
+        </div>
+            
+        </div>
+    </div>
+
+    
+    <div class="form-group row">
+        <label for="inputPassword3" class="col-sm-3 col-form-label">Observações</label>
+        <div class="col-sm-9">
+
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            
+        </div>
     </div>
   
       
@@ -77,6 +146,10 @@
   
 </form>
    
+   
+
+<!-- MODALLLLLLLLLLL -->
+
 
 <!-- Modal -->
 <div class="modal fade modal-corpo" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -90,13 +163,15 @@
       </div>
       <div class="modal-body">
 
-        <form id="form-modal">
+        <form id="form-modal" action="/hospedagens/create" method="POST">
+
+            @csrf
 
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-3 col-form-label">Nome</label>
                 <div class="col-sm-6">
                     <div class="input-group">
-                        <input type="text" class="form-control" id="imputCpf" placeholder="Nome" required >                        
+                        <input type="text" class="form-control" id="imputCpf" name="nome" placeholder="Nome" required >                        
                     </div>            
                 </div>        
             </div>
@@ -105,7 +180,7 @@
                 <label for="inputEmail3" class="col-sm-3 col-form-label">Cpf</label>
                 <div class="col-sm-6">
                     <div class="input-group">
-                        <input type="number" class="form-control" id="imputCpf" placeholder="Cpf" required >                        
+                        <input type="number" class="form-control" id="imputCpf" name="cpf" placeholder="Cpf" required >                        
                     </div>            
                 </div>        
             </div>
@@ -114,25 +189,26 @@
                 <label for="inputEmail3" class="col-sm-3 col-form-label">Telefone</label>
                 <div class="col-sm-6">
                     <div class="input-group">
-                        <input type="number" class="form-control" id="imputCpf" placeholder="Telefone" required >                        
+                        <input type="number" class="form-control" id="imputCpf" name="telefone" placeholder="Telefone" required >                        
                     </div>            
                 </div>        
             </div>
 
             <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-3 col-form-label">Sexo</label>
-                <div class="col-sm-6">
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="imputCpf" placeholder="Sexo" required >                        
-                    </div>            
-                </div>        
+                <label for="sexo" class="col-sm-3 col-form-label">Sexo</label>       
+                <div class="col-sm-6">    
+                    <select name="sexo" id="sexo" class="form-control">
+                        <option value="masculino">Masculino</option>
+                        <option value="feminino">Feminino</option>
+                    </select>
+                </div>
             </div>
 
             <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-3 col-form-label">Data Nascimento</label>
                 <div class="col-sm-6">
                     <div class="input-group">
-                        <input type="date" class="form-control" id="imputCpf" placeholder="Data de Nascimento" required >                        
+                        <input type="date" class="form-control" id="imputCpf" name="data_nascimento" placeholder="Data de Nascimento" required >                        
                     </div>            
                 </div>        
             </div>

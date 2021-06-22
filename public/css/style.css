@@ -1,8 +1,4 @@
 
-form{
-    
-
-}
 
 #btn-new-hosp{
     
@@ -16,10 +12,6 @@ form{
     /*float: right;*/
 }
 
-.form-group{
-
-   
-}
 
 /*
 .modal-personalizado{
@@ -166,4 +158,18 @@ form{
 }
 .camp-search{
     float: right;
+}
+
+.delete{
+    display: inline;
+}
+
+.msg{
+    background-color: #48C28D;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
 }

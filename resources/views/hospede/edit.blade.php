@@ -1,44 +1,56 @@
 @extends('layouts.main')
 
-@section('title', 'EditarInformações do Hóspede')
+@section('title', 'Editando: '. $hospede->nome )
 
 
 @section('content')
 
-<form id="form2">
+<form id="form2" action="/hospedes/update/{{ $hospede->id }}" method="POST">
+
+    @csrf
+    @method('PUT')
  
     <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-3 col-form-label">Nome</label>
+        <label for="nome" class="col-sm-3 col-form-label">Nome</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" id="inputPassword3" value="Aldp" required>
+            <input type="text" class="form-control" name="nome" id="nome" value="{{ $hospede->nome }}" placeholder="Nome" required>
         </div>
     </div>
 
     <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-3 col-form-label">CPF</label>
+        <label for="cpf" class="col-sm-3 col-form-label">CPF</label>
         <div class="col-sm-9">
-            <input type="number" class="form-control" id="inputPassword3" value="07564812456" required>
+            <input type="number" class="form-control" name="cpf" id="cpf" value="{{ $hospede->cpf }}" placeholder="CPF" required>
         </div>
     </div>
 
     <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-3 col-form-label">Telefone</label>
+        <label for="telefone" class="col-sm-3 col-form-label">Telefone</label>
         <div class="col-sm-9">
-            <input type="number" class="form-control" id="inputPassword3" value="77991054875" required>
+            <input type="number" class="form-control" name="telefone" id="telefone" value="{{ $hospede->telefone }}" placeholder="Telefone" required>
         </div>
     </div>
 
     <div class="form-group row">
-        <label for="inputPassword3" class="col-sm-3 col-form-label">Sexo</label>
-        <div class="col-sm-9">
-            <input type="password" class="form-control" id="inputPassword3" value="Masculino" required>
+        <label for="sexo" class="col-sm-3 col-form-label">Sexo</label>       
+        <div class="col-sm-9">    
+            <select name="sexo" id="sexo" value="{{ $hospede->sexo }}" class="form-control">
+
+                <option value="masculino" 
+                    @if($hospede->sexo == 'masculino') {{ "selected" }} @endif 
+                >Masculino</option>
+
+                <option value="feminino"
+                    @if($hospede->sexo == 'feminino') {{ "selected" }} @endif
+                >Feminino</option>
+            </select>
         </div>
     </div>
 
     <div class="form-group row">
         <label for="inputPassword3" class="col-sm-3 col-form-label">Data de Nascimento</label>
         <div class="col-sm-9">
-            <input type="date" class="form-control" id="inputPassword3" value="10/10/2010" required>
+            <input type="date" class="form-control" name="data_nascimento" id="data_nascimento" value="{{ $hospede->data_nascimento }}" placeholder="Data de Mascimento" required>
         </div>
     </div>
   
@@ -46,9 +58,9 @@
     <div class="form-group row" id="btn-form">  
         <div class="col-sm-12"> 
             <a href="/hospedes">
-                <button type="button" class="btn btn-success">Salvar</button>
+                <button type="button" class="btn btn-danger">Cancelar</button>
             </a>           
-            <button type="submit" class="btn btn-danger">Cancelar</button>
+            <button type="submit" class="btn btn-success">Salvar</button>
         </div>   
     </div>
     

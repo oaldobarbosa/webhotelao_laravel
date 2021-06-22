@@ -50,7 +50,7 @@
       
     <div class="form-group row" id="btn-form">  
         <div class="col-sm-12"> 
-            <a href="/hospedagens">
+            <a href="/hospedes">
                 <button type="button" class="btn btn-danger">Cancelar</button>
             </a>           
             <button type="submit" class="btn btn-success">Cadastrar</button>
