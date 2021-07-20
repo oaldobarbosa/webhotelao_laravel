@@ -56,15 +56,7 @@
 
 .info-box{
     border-radius: 10px;
-    /*font-size: 14px;
-    line-height: 1.42857143;
-    font-family: 'Roboto', Arial, Tahoma, sans-serif;
-    box-sizing: border-box;*/
-    /*color: #fff;*/
     display: flex;
-    /*cursor: default;
-    position: relative;
-    overflow: hidden;*/
     margin-bottom: 30px;
 }
 
@@ -85,8 +77,10 @@
 .info-box .icon{
     
     color: #fff;
-    /*cursor: default;
-    box-sizing: border-box;*/
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,13 +97,8 @@
 
 .info-box .content{
 
-    /*font-size: 14px;
-    line-height: 1.42857143;*/
     font-family: 'Roboto', Arial, Tahoma, sans-serif;
-    /*color: #fff;
-    cursor: default;
-    box-sizing: border-box;
-    display: inline-block;*/
+    
     padding: 7px 10px;
     width: 50%;
 }
@@ -146,8 +135,22 @@
     color: lightslategray;
 }
 
+.info-camp{
+    margin-right: 20px;
+    min-width: 60px;
+}
+
 .info{
     color: black;
+    float: left;
+    
+}
+.info-ob{
+    
+    word-wrap: break-word;
+    color: black;
+    float: left;
+
 }
 .op-view{
     text-align: center;
@@ -172,4 +175,19 @@
     margin-bottom: 20px;
     text-align: center;
     padding: 10px;
+}
+
+.msg-erro{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+.label-vhospedagem{
+    width: 200px;
+    float: left;
 }

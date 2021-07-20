@@ -8,10 +8,10 @@
 <div class="col-sm-12">
     
     <div class="col-sm-06 camp-search">
-        <form action="post">
+        <form action="/quartos" method="GET">
             <div class="form-group row">        
                     <div class="input-group">
-                        <input type="text" class="form-control" id="inputEmail3" placeholder="Busca..." required >
+                        <input type="text" class="form-control" id="search" name="search" placeholder="Busca..."  >
                         <div class="input-group-btn">
 
                             <button type="submit" class="btn btn-success"><i class="bi bi-search"></i> Search</button>
@@ -22,42 +22,50 @@
     </div>
 </div>
 
-<table class="table">
+@if(count($quartos) == 0 && $search)
 
-<thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nr Quarto</th>
-        <th scope="col">Tipo</th>
-        <th scope="col">Valor Diária</th>
-        <th scope="col">Status</th>
-        <th scope="col">Ação</th>
-        
-    </tr>      
-</thead>
+    <h2>Não foi possível achar nenhum Quarto com o número informado</h2>
 
+@else
+    <table class="table">
 
-<tbody>
-   @foreach($quartos as $quarto)
+    <thead>
         <tr>
-            <td scope="row"> {{ $quarto->id  }} </td>
-            <td> {{ $quarto->numero }} </td>
-            <td> {{ $quarto->tipo }} </td>
-            <td> {{ $quarto->valor_diaria }} </td>
-            <td> {{ $quarto->status }} </td>
-
-            <td>
-                @if($quarto->status == 'livre')
-                <a href="/quartos/edit/{{ $quarto->id }}" class="btn btn-warning edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a>
-                @endif                 
-            </td>
-        </tr>
-    @endforeach  
-</tbody>
+            
+            <th scope="col">Nr Quarto</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Capacidade</th>
+            <th scope="col">Valor Diária</th>
+            <th scope="col">Status</th>
+            <th scope="col">Ação</th>
+            
+        </tr>      
+    </thead>
 
 
-</table>
+    <tbody>
+    @foreach($quartos as $quarto)
+            <tr>
+                
+                <td> {{ $quarto->numero_quarto }} </td>
+                <td> {{ $quarto->tipo }} </td>
+                <td> {{ $quarto->qtd_pessoas }} </td>
+                <td> {{ $quarto->valor_diaria }} </td>
+                <td> {{ $quarto->status }} </td>
 
-<p>* Para alterar o valor, o quarto tem de estar livre.</p>
+                <td>
+                    @if($quarto->status == 'livre')
+                    <a href="/quartos/edit/{{ $quarto->numero_quarto }}" class="btn btn-warning edit-btn"><ion-icon name="create-outline"></ion-icon>Editar</a>
+                    @endif                 
+                </td>
+            </tr>
+        @endforeach  
+    </tbody>
 
+
+    </table>
+
+    <p>* Para alterar o valor, o quarto tem de estar livre.</p>
+
+@endif
 @endsection

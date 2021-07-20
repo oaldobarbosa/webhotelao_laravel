@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
-@section('title', 'Editando o Quarto: ' . $quarto->id )
+@section('title', 'Editando o Quarto: ' . $quarto->numero_quarto )
 
 
 @section('content')
 
-<form id="form2" action="/quartos/update/{{ $quarto->id }}" method="POST">
+<form id="form2" action="/quartos/update/{{ $quarto->numero_quarto }}" method="POST">
 
     @csrf
     @method('PUT')
@@ -13,7 +13,7 @@
     <div class="form-group row">
         <label for="nome" class="col-sm-3 col-form-label">Numero:</label>
         <div class="col-sm-9">
-            <input type="text" class="form-control" name="numero" id="nome" value="{{$quarto->numero}}" placeholder="Número" required>
+            <input type="text" class="form-control" name="numero_quarto" id="nome" value="{{$quarto->numero_quarto}}" placeholder="Número" required>
         </div>
     </div>
 
@@ -34,8 +34,8 @@
     <div class="form-group row">
         <label for="inputPassword3" class="col-sm-3 col-form-label">Status:</label>
         <div class="col-sm-9">
-            <div class="form-control">{{$quarto->status}}</div>
-            <!--<input type="text" class="form-control" name="status" id="" value="{{$quarto->status}}" placeholder="" disabled="">-->
+            <div class="form-control" style="background-color: #c4c4c4;">{{$quarto->status}}</div>
+            <!--<input type="text" class="form-control" name="status" id="" value="{{$quarto->status}}" placeholder="" >-->
         </div>
     </div>
   

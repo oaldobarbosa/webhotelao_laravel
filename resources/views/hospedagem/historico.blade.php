@@ -43,25 +43,19 @@
 
 
 <tbody>
-   {{--  @foreach($quartos as $quarto) --}}
+    @foreach($historicos as $historico)
         <tr>
-            <td scope="row"> 1</td>
-            <td>045452221</td>
-            <td>10/08/2021</td>
-            <td>12/08/2021</td>
-            <td>4</td>
-            <td>R$:55,00</td>
+            <td scope="row">{{ $historico->id }}</td>
+            <td> {{ $historico->cpf_hospede }} </td>
+            <td>{{ $historico->data_hospedagem }}</td>
+            <td> {{ $historico->data_checkout }} </td>
+            <td> {{ $historico->numero_quarto }} </td>
+            <td> {{ $historico->valor_total }} </td>
             <td> 
-                <a href="" class="btn btn-success view-btn"><i class="bi bi-eye"></i></a>
-
-                <!--<form action="" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger delete-btn"><i class="bi bi-trash"></i></button>
-                </form>-->               
+                <a href="/historico/{{ $historico->id }}" class="btn btn-success view-btn"><i class="bi bi-eye"></i></a>              
             </td>
         </tr>
-    {{-- @endforeach   --}}     
+    @endforeach    
 </tbody>
 
 

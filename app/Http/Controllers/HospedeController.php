@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Exceptions\Handler;
+use App\Http\Requests\HospedeRequest;
 use App\Models\Hospede;
+//
+use Illuminate\Support\Facades\DB;
+
+use phpDocumentor\Reflection\Types\Null_;
 
 class HospedeController extends Controller
 {
     public function index(){
 
         $search = request('search');
-
+        //filtrar pelo search
         if ($search) {
 
             $hospedes = Hospede::where([
@@ -33,51 +39,54 @@ class HospedeController extends Controller
         return view ('hospede.create');
     }
 
-    public function store(Request $request){
+    public function store(HospedeRequest $request){
 
         $hospede = new Hospede;
 
         $hospede->nome = $request->nome;
-        $hospede->cpf = $request->cpf;
+        $hospede->cpf_hospede = $request->cpf_hospede;
         $hospede->telefone = $request->telefone;
         $hospede->sexo = $request->sexo;
         $hospede->data_nascimento = $request->data_nascimento;
 
         $hospede->save();
 
-        return redirect()->back()->with('msg', 'Hospede Adicionado com Sucesso!');
-
-        //return redirect('/hospedes')->with('msg', 'Hospede Adicionado com Sucesso!');
+        return redirect('/hospedagens/create')->with('msg', 'Hospede Adicionado com Sucesso!');
 
     }
 
-    public function show($id){
+    public function show($cpf){
 
-        $hospede = Hospede::findOrFail($id);
-
+        $hospede = Hospede::findOrFail($cpf);
         return view('hospede.show', ['hospede' => $hospede]);
 
     }
 
-    public function destroy($id){
+    public function destroy($cpf){
 
-        $hospede = Hospede::findOrFail($id)->delete();
+        try {
 
-        return redirect('/hospedes')->with('msg', 'Hóspede Deletado Com Sucesso');
+            $hospede = Hospede::findOrFail($cpf)->delete();
+            return redirect('/hospedes')->with('msg', 'Hóspede Deletado Com Sucesso');   
+            
+        } catch (\Throwable $th) {
+            return redirect('/hospedes')->with('msg-erro', 'Hóspede Relacionado à uma Hospedagem!');
+
+        }
+    
     }
 
-    public function edit($id){
+    public function edit($cpf){
 
-        $hospede = Hospede::findOrFail($id);
+        $hospede = Hospede::findOrFail($cpf);
 
         return view('hospede.edit', ['hospede' => $hospede]);
 
     }
 
-    public function update(Request $request){
+    public function update(HospedeRequest $request){
 
-        $hospede = Hospede::findOrFail($request->id)->update($request->all());
-
+        $hospede = Hospede::findOrFail($request->cpf)->update($request->all());
         return redirect('/hospedes')->with('msg', 'Dados do Hóspede Atualizado Com Sucesso!');
 
     }

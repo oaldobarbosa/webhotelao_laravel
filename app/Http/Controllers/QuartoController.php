@@ -10,7 +10,24 @@ class QuartoController extends Controller
 {
     public function index(){
 
-        $quartos = Quarto::all();
+
+        $search = request('search');
+        //filtrar pelo search
+        if ($search) {
+
+            $quartos = Quarto::where([
+                ['numero_quarto', 'like', '%'.$search.'%']
+
+            ])->get();
+            
+        }else {
+
+            $quartos = Quarto::all();
+    
+        }
+
+
+        
 
         return view('quarto.quartos', ['quartos' => $quartos]);
     }
@@ -25,10 +42,30 @@ class QuartoController extends Controller
 
     public function update(Request $request){
 
-        $quarto = Quarto::findOrFail($request->id)->update($request->all());
+        $quarto = Quarto::findOrFail($request->numero_quarto)->update($request->all());
 
         return redirect('/quartos');
 
+
+    }
+
+    // metodo no controller
+
+    public function searchQuartos(Request $request){
+        if($request->ajax()) {
+
+            $quartos = Quarto::where('qtd_pessoas', $request->qtd_pessoas)->where('status', 'livre')->get();
+            return response()->json($quartos);
+        }
+    }
+
+    public function searchValor(Request $request){
+
+        if($request->ajax()) {
+
+            $quartos = Quarto::where('numero_quarto', $request->numero_quarto)->get();
+            return response()->json($quartos);
+        }
 
     }
 

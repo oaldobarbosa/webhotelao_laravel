@@ -5,7 +5,7 @@
 
 @section('content')
 
-<form id="form2" action="/hospedes/update/{{ $hospede->id }}" method="POST">
+<form id="form2" action="/hospedes/update/{{ $hospede->cpf_hospede }}" method="POST">
 
     @csrf
     @method('PUT')
@@ -20,7 +20,7 @@
     <div class="form-group row">
         <label for="cpf" class="col-sm-3 col-form-label">CPF</label>
         <div class="col-sm-9">
-            <input type="number" class="form-control" name="cpf" id="cpf" value="{{ $hospede->cpf }}" placeholder="CPF" required>
+            <input type="number" class="form-control" name="cpf_hospede" id="cpf_hospede" value="{{ $hospede->cpf_hospede }}" placeholder="CPF" required>
         </div>
     </div>
 
@@ -36,11 +36,11 @@
         <div class="col-sm-9">    
             <select name="sexo" id="sexo" value="{{ $hospede->sexo }}" class="form-control">
 
-                <option value="masculino" 
+                <option value="Masculino" 
                     @if($hospede->sexo == 'masculino') {{ "selected" }} @endif 
                 >Masculino</option>
 
-                <option value="feminino"
+                <option value="Feminino"
                     @if($hospede->sexo == 'feminino') {{ "selected" }} @endif
                 >Feminino</option>
             </select>

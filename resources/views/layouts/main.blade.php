@@ -3,6 +3,10 @@
 
 <head>
     <meta charset="utf-8">
+    <!-- Token -->
+    
+
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,6 +28,9 @@
     
     <script src="/js/script.js"></script>
 
+    <!--chart js -->
+    <script src="//cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
+
     <!-- Js Bootstrap -->
 
     <!-- icons -->
@@ -36,7 +43,7 @@
 <![endif]-->
 </head>
 
-<body>
+<body oncontextmenu="return false">
     <!-- Preloader -->
     <div class="preloader">
         <div class="lds-ripple">
@@ -177,6 +184,12 @@
                         <div id="msg">
                             <p class="msg"> {{ session('msg') }}</p>
                         </div>
+
+                    @elseif(session('msg-erro'))
+                        <div id="msg">
+                            <p class="msg-erro"> {{ session('msg-erro') }}</p>
+                        </div>
+
                     @endif  
                                   
                     @yield('content')

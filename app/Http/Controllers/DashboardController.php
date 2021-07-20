@@ -9,13 +9,13 @@ class DashboardController extends Controller
 {
     public function index(){
 
-        //$hospedagens = DB::table('hospedagens')->count();
+        $hospedagens = DB::table('hospedagens')->where('status', 'ativa')->count();
         $hospedes = DB::table('hospedes')->count();
-        //$hospedagens = DB::table('users')->count();
+        $quartos_livres = DB::table('quartos')->where('status', 'livre')->count();
 
         $hoje = date('d/m/Y');
 
-        return view('dashboard', ['hospedes' => $hospedes, 'hoje' => $hoje]);
+        return view('dashboard', ['hospedagens' => $hospedagens, 'hospedes' => $hospedes, 'quartos_livres'=> $quartos_livres, 'hoje' => $hoje]);
 
     }
     //

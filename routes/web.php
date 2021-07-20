@@ -8,6 +8,9 @@ use App\Http\Controllers\HospedeController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HospedagemController;
+use App\Http\Controllers\TesteController;
+use App\Models\Hospedagem;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,52 +23,54 @@ use App\Http\Controllers\HospedagemController;
 |
 */ 
 
-//dashboard
-Route::get('/', [DashboardController::class, 'index']);
+Route::middleware(['auth:sanctum', 'verified'])->group(function(){
 
-//HOSPEDAGENS
-Route::get('/hospedagens', [HospedagemController::class, 'index']);
+    Route::get('/welcome', function () {
+        return view('welcome');
+    })->name('welcome');
+
+    //dashboard
+    Route::get('/', [DashboardController::class, 'index']);
+
+    //HOSPEDAGENS
+    Route::get('/hospedagens', [HospedagemController::class, 'index']);
+    Route::get('/hospedagens/create', [HospedagemController::class, 'create']);
+    Route::post('/hospedagens', [HospedagemController::class, 'store']);
+    Route::get('/hospedagens/{id}', [HospedagemController::class, 'show']);
+    Route::get('hospedagens/checkout/{id}', [HospedagemController::class, 'edit']);
+    Route::put('/hospedagens/update/{id}', [HospedagemController::class, 'update']);
+
+    //chekout
+    Route::get('/hospedagens/checkout/{id}', [HospedagemController::class, 'checkout']);
+
+    //HOSPEDES
+    Route::get('/hospedes', [HospedeController::class, 'index']);
     //create
-Route::get('/hospedagens/create', [HospedagemController::class, 'create']);
+    Route::get('/hospedes/create', [HospedeController::class, 'create']);
+    //post create
+    Route::post('/hospedes', [HospedeController::class, 'store']);
 
-Route::post('/hospedagens/create', [HospedeController::class, 'store']);
-
-
-
-
-//chekout
-Route::get('/hospedagens/checkout/{id}', [CheckoutController::class, 'index']);
-
-
-//HOSPEDES
-Route::get('/hospedes', [HospedeController::class, 'index']);
-//create
-Route::get('/hospedes/create', [HospedeController::class, 'create']);
-//post create
-Route::post('/hospedes', [HospedeController::class, 'store']);
-
-Route::get('/hospedes/{id}', [HospedeController::class, 'show']);
-//delete
-Route::delete('/hospedes/{id}', [HospedeController::class, 'destroy']);
-//edit
-Route::get('/hospedes/edit/{id}', [HospedeController::class, 'edit']);
-Route::put('/hospedes/update/{id}', [HospedeController::class, 'update']);
+    Route::get('/hospedes/{cpf}', [HospedeController::class, 'show']);
+    //delete
+    Route::delete('/hospedes/{cpf}', [HospedeController::class, 'destroy']);
+    //edit
+    Route::get('/hospedes/edit/{cpf}', [HospedeController::class, 'edit']);
+    Route::put('/hospedes/update/{cpf}', [HospedeController::class, 'update']);
 
 
-Route::get('/view', function(){
-    return view('/hospede/view');
+
+    //QUARTOS
+    Route::get('/quartos', [QuartoController::class, 'index'])->middleware('auth');
+    Route::get('/quartos/edit/{id}', [QuartoController::class, 'edit']);
+    Route::put('/quartos/update/{id}', [QuartoController::class, 'update']);
+  
+    Route::post('/quartos/search', [QuartoController::class, 'searchQuartos']);//ajax
+    Route::post('/quartos/searchValor', [QuartoController::class, 'searchValor']);//ajax
+
+
+    //historico
+    Route::get('/historico', [HistoricoController::class, 'index']);
+    Route::get('/historico/{id}', [HistoricoController::class, 'show']);
+
+
 });
-
-Route::get('/hospede/edit', function(){
-    return view('/hospede/edit');
-});
-
-//QUARTOS
-Route::get('/quartos', [QuartoController::class, 'index']);
-Route::get('/quartos/edit/{id}', [QuartoController::class, 'edit']);
-Route::put('/quartos/update/{id}', [QuartoController::class, 'update']);
-
-
-//historico
-Route::get('/historico', [HistoricoController::class, 'index']);
-

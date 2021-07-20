@@ -9,5 +9,9 @@ class Quarto extends Model
 {
     use HasFactory;
 
+    protected $table = 'quartos';
+    protected $primaryKey = 'numero_quarto';
+    public $timestamps = true;
+
     protected $guarded = [];
 }

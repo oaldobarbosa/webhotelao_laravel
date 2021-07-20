@@ -9,5 +9,8 @@ class Hospede extends Model
 {
     use HasFactory;
 
+
+    protected $primaryKey = 'cpf_hospede';
+
     protected $guarded = [];
 }
