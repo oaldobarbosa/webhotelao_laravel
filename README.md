@@ -1,62 +1,93 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+
+<!--<p align="center" id="sobre"><img src="./documentos/logo.png" width="50%"></p>-->
+
+<h1 align="center">WebHotelão Laravel</h1>
+
+<p align="justify">WebHotelão Laravel é um sistema de gerenciamento de hospedagem desenvolvido com php no backend sem o uso de frameworks, para fins de aprovação na matéria de Laboratório de Programação Web I.</p>
 
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="#sobre">Sobre</a> •
+  <a href="#tecnologias">Tecnologias</a> •
+  <a href="#layout">Layout</a> •
+  <a href="#funcionalidades">Funcionalidades</a> •
+  <a href="#autor">Autor</a>
 </p>
 
-## About Laravel
+<h2 id="tecnologias">Tecnologias</h2>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+As seguintes ferramentas estão sendo utilizadas na construção do projeto:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Prototipação e Design:
+- FIGMA link:https://www.figma.com/file/JiUsBEGKbNOI9rOOSeIooX/webhotelaolaravel
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Desenvolvimento:
+- FRAMEWORK LARAVEL 8.46.0
+- HTML5
+- CSS3
+- JAVASCRIPT
+- BIBLIOTECA JQUERY
+- PHP
+- MYSQL
 
-## Learning Laravel
+<!--
+<h2 id="layout">Layout</h2>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Login
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![Login](documentos/tela_login.png)
 
-## Laravel Sponsors
+- Dashboard
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+![Dashboard](documentos/dashboard.png)
 
-### Premium Partners
+- Hospedagens
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
+![Dashboard](documentos/read_hospedagens.png)
 
-## Contributing
+- Nova Hospedagem
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![Dashboard](documentos/nova_hospedagem.png)
 
-## Code of Conduct
+- Hospedes
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![Dashboard](documentos/read_hospedes.png)
 
-## Security Vulnerabilities
+- Cadastrar Hospede
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![Dashboard](documentos/cadastrar_hospede.png)
 
-## License
+Acesse completo a base do layout no [Figma](https://www.figma.com/file/eOuryb8S4W1TTLD9mdyYkP/webhotelao?node-id=0%3A1) (ainda em construção).
+-->
+<h2 id="funcionalidades">Funcionalidades</h2>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- [X] Login
+- [X] Dashboard
+- [X] Checkin
+- [X] Finalizar Hospedagem
+- [X] Visualizar Hospedagens
+- [X] Adição, Consulta, Edição e Remoção de Hospedes
+- [x] Visualizar Quartos
+- [x] Historico de Hospedagem
+- [x] Módulo Checkin
+- [x] Módulo de Serviços
+- [ ] Módulo Reservas
+
+
+<h3>Visualizar versão de produção</h3>
+
+- O Sistema será hospedado em breve!
+
+<h2 id="autor">Autor</h2>
+Todas as etapas do front e back foram desenvolvidas por:
+
+<table align="center">
+   <tr>
+        <td align="center">
+            <a href="https://github.com/oaldobarbosa">
+                <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/77800438?s=460&u=7f35b038a34ff209ed116a7c0b36c784e1e7ab91&v=4" width="80px;" alt="Foto de Aldo Barbosa"/>
+                <br/>
+                <b>Aldo Barbosa</b>
+            </a>
+        </td>
+  </tr>
+</table>
